@@ -59,7 +59,7 @@
             height: auto;
             display: block;
             aspect-ratio: 1280 / 280; /* Maintains exact 1280 x 280 ratio */
-            object-fit: contain; /* Ensures no cropping, full image visible */
+            object-fit: contain; /* Ensures no cropping, full img visible */
             object-position: center;
         }
 
@@ -483,7 +483,14 @@
     <button id="toggleMode" class="toggle-mode" align="right">Dark Mode</button>
   </nav>
   
-  <div class="header"></div>
+<div class="banner-container">
+    <img 
+        src="assets/aHPay-banner.png" 
+        alt="aHPay Banner" 
+        class="banner-image"
+        loading="lazy"
+    >
+</div>
   <div class="intro">
     <p><strong>aHPay</strong> is your secure payment portal for transactions to <strong>Ayush Hardeniya (Ayush Sharma)</strong>. Enjoy fast, transparent payments directly via UPI or bank transfers with no intermediaries.</p>
   </div>
