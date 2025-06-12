@@ -1,682 +1,594 @@
-/*Styles for aHPay */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Fixed and Combined CSS for aHPay */
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            min-height: 100vh;
-        }
+:root {
+  --primary-color: #1a73e8;     
+  --secondary-color: #4285f4;
+  --bg-color: #f1f3f4;           
+  --container-bg: #ffffff;       
+  --text-color: #202124;         
+  --footer-bg: #ffffff;
+  --footer-text: #5f6368;
+  --hover-primary: #1669c1;      
+  --accent-color: #0f9d58;       
+  --navbar-bg: #1a73e8;
+}
 
-        /* Navbar Styles */
-        .navbar {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #333;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
 
-        /* Logo Section */
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        .nav-brand:hover {
-            transform: scale(1.05);
-        }
+/* Navbar Styles */
+.navbar {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
-        .logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
 
-        .logo:hover {
-            box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
-        }
+/* Logo Section */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
 
-        .brand-text {
-            color: #fff;
-            font-size: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
+.nav-brand:hover {
+  transform: scale(1.05);
+}
 
-        .brand-subtitle {
-            color: #4a90e2;
-            font-size: 12px;
-            font-weight: 400;
-            margin-top: -2px;
-        }
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
-        /* Navigation Links */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
+.logo:hover {
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
 
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 10px 20px;
-            border-radius: 25px;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.brand-text {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-        .nav-links li a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #4a90e2, #50c878);
-            border-radius: 25px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
+.brand-subtitle {
+  color: #4a90e2;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: -2px;
+}
 
-        .nav-links li a:hover::before {
-            opacity: 1;
-        }
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
 
-        .nav-links li a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
-        }
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-        /* Payment Icons */
-        .payment-icon {
-            width: 18px;
-            height: 18px;
-        }
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #4a90e2, #50c878);
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
 
-        /* Signature */
-        .nav-signature {
-            display: flex;
-            align-items: center;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
+.nav-links li a:hover::before {
+  opacity: 1;
+}
 
-        .nav-signature:hover {
-            opacity: 1;
-        }
+.nav-links li a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
 
-        .signature-img {
-            height: 30px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-        }
+/* Payment Icons */
+.payment-icon {
+  width: 18px;
+  height: 18px;
+}
 
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            transition: transform 0.3s ease;
-        }
+/* Signature */
+.nav-signature {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
 
-        .mobile-menu-btn:hover {
-            transform: scale(1.1);
-        }
+.nav-signature:hover {
+  opacity: 1;
+}
 
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
+.signature-img {
+  height: 30px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
 
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
 
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
+.mobile-menu-btn:hover {
+  transform: scale(1.1);
+}
 
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
+.mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
 
-        /* Mobile Navigation */
-        .nav-links.mobile {
-            display: none;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.98);
-            flex-direction: column;
-            padding: 20px 0;
-            border-top: 1px solid #333;
-            backdrop-filter: blur(10px);
-        }
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
 
-        .nav-links.mobile.active {
-            display: flex;
-        }
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
 
-        .nav-links.mobile li {
-            margin: 10px 0;
-        }
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
-        .nav-links.mobile li a {
-            justify-content: center;
-            width: 80%;
-            margin: 0 auto;
-        }
+/* Mobile Navigation */
+.nav-links.mobile {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.98);
+  flex-direction: column;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  backdrop-filter: blur(10px);
+}
 
-        /* Demo Content */
-        .content {
-            margin-top: 100px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.nav-links.mobile.active {
+  display: flex;
+}
 
-        .section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 30px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+.nav-links.mobile li {
+  margin: 10px 0;
+}
 
-        .section h2 {
-            color: #fff;
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.nav-links.mobile li a {
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
 
-        .section p {
-            color: #ccc;
-            font-size: 16px;
-            line-height: 1.6;
-            text-align: center;
-        }
+/* Banner Container */
+.banner-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 80px auto 0; /* Added top margin to account for fixed navbar */
+  position: relative;
+  overflow: hidden;
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                height: 60px;
-                padding: 0 15px;
-            }
+/* Banner Image */
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1280 / 280;
+  object-fit: contain;
+  object-position: center;
+}
 
-            .nav-links {
-                display: none;
-            }
+/* Intro Section */
+.intro {
+  text-align: left;
+  margin: 30px 20px;
+  font-size: 1.15em;
+  color: var(--text-color);
+}
 
-            .mobile-menu-btn {
-                display: flex;
-            }
+.intro p {
+  margin-bottom: 10px;
+}
 
-            .brand-text {
-                font-size: 20px;
-            }
+.intro p strong {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
-            .logo {
-                width: 35px;
-                height: 35px;
-            }
+/* Main Container & Cards */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
 
-            .signature-img {
-                height: 25px;
-            }
+.card {
+  background: var(--container-bg);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
 
-            .content {
-                margin-top: 80px;
-                padding: 20px 10px;
-            }
+/* Payment Method Instruction */
+.instruction {
+  text-align: left;
+  margin: 10px 20px 20px;
+  font-size: 1em;
+  color: var(--text-color);
+}
 
-            .section {
-                padding: 25px 20px;
-                margin: 20px 0;
-            }
+/* Tabs Navigation for Payment Methods */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
 
-            .section h2 {
-                font-size: 24px;
-            }
+.tab {
+  flex: 1;
+  min-width: 150px;
+  background: var(--bg-color);
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-            .section p {
-                font-size: 14px;
-            }
-        }
+.tab:hover {
+  background: var(--secondary-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
 
-        @media (max-width: 480px) {
-            .nav-container {
-                gap: 10px;
-            }
+.tab.active {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-            .brand-text {
-                font-size: 18px;
-            }
+/* Content Sections */
+.content {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
 
-            .nav-signature {
-                display: none;
-            }
-        }
+.content.active {
+  display: block;
+}
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+/* Payment Button */
+.button {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 15px 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
 
-        /* Glowing Effect for Active Section */
-        .section:target {
-            box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
-            border-color: rgba(74, 144, 226, 0.5);
-        }
+.button:hover {
+  background: var(--hover-primary);
+  transform: scale(1.03);
+}
 
-<style>
-    
-    :root {
-      --primary-color: #1a73e8;     
-      --secondary-color: #4285f4;
-      --bg-color: #f1f3f4;           /* Light neutral bcg */
-      --container-bg: #ffffff;       /* White for cards/sections */
-      --text-color: #202124;         /* dark text on light background */
-      --footer-bg: #ffffff;
-      --footer-text: #5f6368;
-      --hover-primary: #1669c1;      /* Darker blue on hover */
-      --accent-color: #0f9d58;       /* Accent for interactive elements */
-      --navbar-bg: #1a73e8; /* Opaque navbar background */
-    }
-    
-    /* Global Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      font-size: 16px;
-      transition: background 0.3s, color 0.3s;
-    }
+/* UPI List Styling */
+.upi-list {
+  list-style: none;
+  margin-top: 15px;
+  padding: 0;
+}
 
-        /* Banner Container */
-        .banner-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto; /* Centering the banner */
-            position: relative;
-            overflow: hidden;
-        }
+.upi-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background: var(--bg-color);
+  border-radius: 4px;
+}
 
-        /* Banner Image */
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 1280 / 280; /* Maintains exact 1280 x 280 ratio */
-            object-fit: contain; /* Ensures no cropping, full img visible */
-            object-position: center;
-        }
+.copy-btn {
+  background: var(--primary-color);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-        /* Alternative approach using background image */
-        .banner-bg {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            aspect-ratio: 1280 / 280;
-            background-image: url('assets/aHPay-banner.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+.copy-btn:hover {
+  background: var(--hover-primary);
+}
 
-        /* responsiveness */
-        @media (max-width: 768px) {
-            .banner-container,
-            .banner-bg {
-                margin: 0 0.5rem;
-                max-width: calc(100% - 1rem);
-            }
-        }
+/* Bank Details */
+.bank-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;  
+}
 
-        @media (max-width: 480px) {
-            .banner-container,
-            .banner-bg {
-                margin: 0 0.25rem;
-                max-width: calc(100% - 0.5rem);
-            }
-        }
-    
-    /* Dark Mode Overrides */
-    body.dark-mode {
-      background: #121212;
-      color: #e0e0e0;
-    }
-    body.dark-mode .container,
-    body.dark-mode .card {
-      background: #1f1f1f;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-    body.dark-mode .navbar {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    body.dark-mode .toggle-mode {
-      background: rgba(255, 255, 255, 0.2);
-      color: #e0e0e0;
-    }
-    body.dark-mode .tab {
-      background: #2c2c2c;
-      color: #e0e0e0;
-    }
-    body.dark-mode .tab.active {
-      background: var(--primary-color);
-      color: #fff;
-    }
-    body.dark-mode .upi-list li,
-    body.dark-mode .bank-details .detail,
-    body.dark-mode .features .feature {
-      background: #2c2c2c;
-    }
-    body.dark-mode .footer {
-      background: #1f1f1f;
-      color: #aaa;
-      border-top: 1px solid #333;
-    }
-    
-    /* Header Banner Image */
-    .header {
-      width: 100%;
-      height: 220px;
-      background: url('PayHeader.PNG') no-repeat center;
-      background-size: cover;
-    }
-    
-    /* introductory description in leftt) */
-    .intro {
-      text-align: left;
-      margin: 30px 20px;
-      font-size: 1.15em;
-      color: var(--text-color);
-    }
-    .intro p {
-      margin-bottom: 10px;
-    }
-    .intro p strong {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-    .intro p.desc {
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
-    
-    /* Main Container & Cards */
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-    .card {
-      background: var(--container-bg);
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    
-    /* payment Method Instruction (Concise) */
-    .instruction {
-      text-align: left;
-      margin: 10px 20px 20px;
-      font-size: 1em;
-      color: var(--text-color);
-    }
-    
-    /* Tabs Navigation for Payment Methods */
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .tab {
-      flex: 1;
-      min-width: 150px;
-      background: var(--bg-color);
-      padding: 12px;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .tab:hover {
-      background: var(--secondary-color);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .tab.active {
-      background: var(--primary-color);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    
-   
-    .content {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .content.active {
-      display: block;
-    }
-    
-    /* Payment Button */
-    .button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 6px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 15px 0;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .button:hover {
-      background: var(--hover-primary);
-      transform: scale(1.03);
-    }
-    
-    /* UPI List Styling */
-    .upi-list {
-      list-style: none;
-      margin-top: 15px;
-      padding: 0;
-    }
-    .upi-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      margin: 10px 0;
-      background: var(--bg-color);
-      border-radius: 4px;
-    }
-    .copy-btn {
-      background: var(--primary-color);
-      border: none;
-      padding: 6px 10px;
-      border-radius: 4px;
-      color: #fff;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .copy-btn:hover {
-      background: var(--hover-primary);
-    }
-    
-    .bank-details {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 1.2em;  
-    }
-    .bank-details .detail {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 500px;
-      margin: 10px 0;
-      padding: 10px;
-      background: var(--bg-color);
-      border-radius: 4px;
-    }
-    .bank-details .detail span:first-child {
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-    .bank-details .value {
-      text-decoration: underline;
-      cursor: pointer;
-      color: var(--text-color);
-    }
-    
-    .qr-section {
-      text-align: center;
-    }
-    .qr-section img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .download-btn {
-      display: inline-block;
-      background: var(--primary-color);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .download-btn:hover {
-      background: var(--hover-primary);
-    }
-    
-    /* section-- Why Choose aHPay? */
-    .features {
-      background: var(--container-bg);
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 30px auto;
-      max-width: 800px;
-      text-align: center;
-    }
-    .features h3 {
-      margin-bottom: 15px;
-      color: var(--primary-color);
-    }
-    .features p {
-      margin-bottom: 10px;
-    }
-    .features .feature-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .features .feature {
-      flex: 1 1 200px;
-      background: var(--bg-color);
-      padding: 15px;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    /* Footer (Normal Flow) */
-    .footer {
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #ddd;
-      margin-top: 40px;
-    }
-    .footer a {
-      color: var(--primary-color);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .tabs {
-        flex-direction: column;
-      }
-      .tab {
-        margin-bottom: 10px;
-      }
-      .button {
-        padding: 10px 20px;
-        font-size: 16px;
-      }
-      .header {
-        height: 170px;
-      }
-      .toggle-mode {
-        font-size: 12px;
-        padding: 5px 8px;
-      }
-    }
+.bank-details .detail {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  padding: 10px;
+  background: var(--bg-color);
+  border-radius: 4px;
+}
+
+.bank-details .detail span:first-child {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.bank-details .value {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* QR Code Section */
+.qr-section {
+  text-align: center;
+}
+
+.qr-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.download-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: var(--hover-primary);
+}
+
+/* Features Section */
+.features {
+  background: var(--container-bg);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.features h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.features p {
+  margin-bottom: 10px;
+}
+
+.features .feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.features .feature {
+  flex: 1 1 200px;
+  background: var(--bg-color);
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode Support */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container,
+body.dark-mode .card {
+  background: #1f1f1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .tab {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+
+body.dark-mode .tab.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+body.dark-mode .upi-list li,
+body.dark-mode .bank-details .detail,
+body.dark-mode .features .feature {
+  background: #2c2c2c;
+}
+
+body.dark-mode .footer {
+  background: #1f1f1f;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .signature-img {
+    height: 25px;
+  }
+
+  .banner-container {
+    margin: 70px 0.5rem 0;
+    max-width: calc(100% - 1rem);
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    gap: 10px;
+  }
+
+  .brand-text {
+    font-size: 18px;
+  }
+
+  .nav-signature {
+    display: none;
+  }
+
+  .banner-container {
+    margin: 70px 0.25rem 0;
+    max-width: calc(100% - 0.5rem);
+  }
+}
