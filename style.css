@@ -304,3 +304,379 @@
             box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
             border-color: rgba(74, 144, 226, 0.5);
         }
+
+<style>
+    
+    :root {
+      --primary-color: #1a73e8;     
+      --secondary-color: #4285f4;
+      --bg-color: #f1f3f4;           /* Light neutral bcg */
+      --container-bg: #ffffff;       /* White for cards/sections */
+      --text-color: #202124;         /* dark text on light background */
+      --footer-bg: #ffffff;
+      --footer-text: #5f6368;
+      --hover-primary: #1669c1;      /* Darker blue on hover */
+      --accent-color: #0f9d58;       /* Accent for interactive elements */
+      --navbar-bg: #1a73e8; /* Opaque navbar background */
+    }
+    
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+        /* Banner Container */
+        .banner-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto; /* Centering the banner */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Banner Image */
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 1280 / 280; /* Maintains exact 1280 x 280 ratio */
+            object-fit: contain; /* Ensures no cropping, full img visible */
+            object-position: center;
+        }
+
+        /* Alternative approach using background image */
+        .banner-bg {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            aspect-ratio: 1280 / 280;
+            background-image: url('assets/aHPay-banner.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* responsiveness */
+        @media (max-width: 768px) {
+            .banner-container,
+            .banner-bg {
+                margin: 0 0.5rem;
+                max-width: calc(100% - 1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-container,
+            .banner-bg {
+                margin: 0 0.25rem;
+                max-width: calc(100% - 0.5rem);
+            }
+        }
+    
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode .container,
+    body.dark-mode .card {
+      background: #1f1f1f;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    body.dark-mode .navbar {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    body.dark-mode .toggle-mode {
+      background: rgba(255, 255, 255, 0.2);
+      color: #e0e0e0;
+    }
+    body.dark-mode .tab {
+      background: #2c2c2c;
+      color: #e0e0e0;
+    }
+    body.dark-mode .tab.active {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    body.dark-mode .upi-list li,
+    body.dark-mode .bank-details .detail,
+    body.dark-mode .features .feature {
+      background: #2c2c2c;
+    }
+    body.dark-mode .footer {
+      background: #1f1f1f;
+      color: #aaa;
+      border-top: 1px solid #333;
+    }
+    
+    /* Header Banner Image */
+    .header {
+      width: 100%;
+      height: 220px;
+      background: url('PayHeader.PNG') no-repeat center;
+      background-size: cover;
+    }
+    
+    /* introductory description in leftt) */
+    .intro {
+      text-align: left;
+      margin: 30px 20px;
+      font-size: 1.15em;
+      color: var(--text-color);
+    }
+    .intro p {
+      margin-bottom: 10px;
+    }
+    .intro p strong {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .intro p.desc {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    
+    /* Main Container & Cards */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .card {
+      background: var(--container-bg);
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    /* payment Method Instruction (Concise) */
+    .instruction {
+      text-align: left;
+      margin: 10px 20px 20px;
+      font-size: 1em;
+      color: var(--text-color);
+    }
+    
+    /* Tabs Navigation for Payment Methods */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      flex: 1;
+      min-width: 150px;
+      background: var(--bg-color);
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .tab:hover {
+      background: var(--secondary-color);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .tab.active {
+      background: var(--primary-color);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+   
+    .content {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .content.active {
+      display: block;
+    }
+    
+    /* Payment Button */
+    .button {
+      display: inline-block;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 15px 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .button:hover {
+      background: var(--hover-primary);
+      transform: scale(1.03);
+    }
+    
+    /* UPI List Styling */
+    .upi-list {
+      list-style: none;
+      margin-top: 15px;
+      padding: 0;
+    }
+    .upi-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 10px 0;
+      background: var(--bg-color);
+      border-radius: 4px;
+    }
+    .copy-btn {
+      background: var(--primary-color);
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .copy-btn:hover {
+      background: var(--hover-primary);
+    }
+    
+    .bank-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.2em;  
+    }
+    .bank-details .detail {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 500px;
+      margin: 10px 0;
+      padding: 10px;
+      background: var(--bg-color);
+      border-radius: 4px;
+    }
+    .bank-details .detail span:first-child {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    .bank-details .value {
+      text-decoration: underline;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+    
+    .qr-section {
+      text-align: center;
+    }
+    .qr-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .download-btn:hover {
+      background: var(--hover-primary);
+    }
+    
+    /* section-- Why Choose aHPay? */
+    .features {
+      background: var(--container-bg);
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 30px auto;
+      max-width: 800px;
+      text-align: center;
+    }
+    .features h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    .features p {
+      margin-bottom: 10px;
+    }
+    .features .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .features .feature {
+      flex: 1 1 200px;
+      background: var(--bg-color);
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Footer (Normal Flow) */
+    .footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .tabs {
+        flex-direction: column;
+      }
+      .tab {
+        margin-bottom: 10px;
+      }
+      .button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      .header {
+        height: 170px;
+      }
+      .toggle-mode {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+    }
