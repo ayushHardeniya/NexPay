@@ -19,15 +19,18 @@ function openTab(event, tabName) {
 }
 
 //UPI Copy script
- function copyToClipboard(elementId) {
-    const upiElement = document.getElementById(elementId);
-    const upiId = upiElement.getAttribute('data-upi');
-    navigator.clipboard.writeText(upiId).then(() => {
-      alert("UPI ID copied: " + upiId);
+
+  function copyMaskedUPI(id) {
+    const span = document.getElementById(id);
+    const fullUPI = span.getAttribute('data-upi');
+
+    navigator.clipboard.writeText(fullUPI).then(() => {
+      alert("UPI ID copied: " + fullUPI);
     }).catch(err => {
-      console.error('Failed to copy UPI ID', err);
+      console.error('Failed to copy: ', err);
     });
   }
+
 
 //QR Download script
 function downloadQR() {
