@@ -43,6 +43,54 @@
       font-size: 16px;
       transition: background 0.3s, color 0.3s;
     }
+
+        /* Banner Container */
+        .banner-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto; /* Centering the banner */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Banner Image */
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 1280 / 280; /* Maintains exact 1280 x 280 ratio */
+            object-fit: contain; /* Ensures no cropping, full image visible */
+            object-position: center;
+        }
+
+        /* Alternative approach using background image */
+        .banner-bg {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            aspect-ratio: 1280 / 280;
+            background-image: url('assets/aHPay-banner.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* responsiveness */
+        @media (max-width: 768px) {
+            .banner-container,
+            .banner-bg {
+                margin: 0 0.5rem;
+                max-width: calc(100% - 1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-container,
+            .banner-bg {
+                margin: 0 0.25rem;
+                max-width: calc(100% - 0.5rem);
+            }
+        }
     
     /* Dark Mode Overrides */
     body.dark-mode {
