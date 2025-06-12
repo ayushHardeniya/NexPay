@@ -20,17 +20,16 @@ function openTab(event, tabName) {
 
 //UPI Copy script
 
-  function copyMaskedUPI(id) {
-    const span = document.getElementById(id);
-    const fullUPI = span.getAttribute('data-upi');
-
-    navigator.clipboard.writeText(fullUPI).then(() => {
-      alert("UPI ID copied: " + fullUPI);
-    }).catch(err => {
-      console.error('Failed to copy: ', err);
-    });
+  function copyActualUPI(actualUPI) {
+    navigator.clipboard.writeText(actualUPI)
+      .then(() => {
+        alert("UPI ID copied: " + actualUPI);
+      })
+      .catch(err => {
+        alert("Failed to copy UPI ID");
+        console.error(err);
+      });
   }
-
 
 //QR Download script
 function downloadQR() {
